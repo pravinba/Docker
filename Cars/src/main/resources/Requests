@@ -1,7 +1,7 @@
 http://localhost:8080/car/findAll
 http://192.168.99.100:8080/car/findOne?regno=111111
 http://192.168.99.100:8080/car/insert
-{
+    {
         "regNo": 111111,
         "make": "Honda",
         "modelName": "Acura",
@@ -12,4 +12,4 @@ http://192.168.99.100:8080/car/insert
         "make": "Skoda",
         "modelName": "Rapid",
         "trim": "Sedan"
-    }8.99.100:8080/car/insert
+    }
