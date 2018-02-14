@@ -1,5 +1,7 @@
 package com.zorro.microservice;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,13 +18,16 @@ public class InsuranceController {
 
 	
 	@RequestMapping("/insert")
-	public @ResponseBody Iterable<Insurance> insertCars(@RequestBody Insurance insuranceRqst) {
-		Insurance newInsurance = new Insurance();
-		System.out.println("Vehicle #"+insuranceRqst.getInsuranceId());
+	public @ResponseBody Insurance insertCars(@RequestBody Insurance insuranceRqst) {	
 		
+		insuranceRqst.setInsuranceId(generateUniqueID());
+		insuranceRqst.setInsuranceType("Comprehensive");
+		System.out.println("Insurance #"+insuranceRqst.getInsuranceId());
 		insuranceRepository.save(insuranceRqst);
 		
-		return findInsurance();
+		System.out.println("Insurance DB Inserted >>>>" + " " + insuranceRqst.toString());
+		
+		return insuranceRqst;
 	}
 	
 	@RequestMapping("/findAll")
@@ -41,6 +46,12 @@ public class InsuranceController {
 		removeInsurance = insuranceRepository.findOne(regno);
 		insuranceRepository.delete(removeInsurance);
 		return removeInsurance;
+	}
+	
+	public String generateUniqueID() {
+		
+		return UUID.randomUUID().toString();		
+		
 	}
 }
 

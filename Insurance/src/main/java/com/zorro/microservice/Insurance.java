@@ -19,6 +19,10 @@ public class Insurance {
 	public String getInsuranceId() {
 		return insuranceId;
 	}
+	@Override
+	public String toString() {
+		return "Insurance [regNo=" + regNo + ", insuranceId=" + insuranceId + ", insuranceType=" + insuranceType + "]";
+	}
 	public void setInsuranceId(String insuranceId) {
 		this.insuranceId = insuranceId;
 	}
