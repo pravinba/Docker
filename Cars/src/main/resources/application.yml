@@ -4,11 +4,17 @@ spring:
     jpa:
         database: MYSQL
         hibernate:
-            ddl-auto: create-drop
+            ddl-auto: create
 
     datasource:
-        url: jdbc:mysql://mysql:3306/carsdb
+        url: jdbc:mysql://carsdb:3306/carsdb
         username: root
         password: password
         driver-class-name: com.mysql.jdbc.Driver
         
+server: 
+ port: 8080
+ 
+insuranceAPI:
+ uri: http://192.168.99.100:8081/insurance
+ key: user:password       

@@ -13,7 +13,7 @@ public class Car {
 	
 	public Integer getRegNo() {
 		return regNo;
-	}
+	}	
 	public void setRegNo(Integer regNo) {
 		this.regNo = regNo;
 	}
@@ -34,5 +34,9 @@ public class Car {
 	}
 	public void setTrim(String trim) {
 		this.trim = trim;
+	}
+	@Override
+	public String toString() {
+		return "Car [regNo=" + regNo + ", make=" + make + ", modelName=" + modelName + ", trim=" + trim + "]";
 	}
 }

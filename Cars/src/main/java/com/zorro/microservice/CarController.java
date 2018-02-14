@@ -11,36 +11,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(path="/car")
 public class CarController {	
+	
 	@Autowired
-	private CarRepository carRepository;
-
+	CarService carService;
+	
 	
 	@RequestMapping("/insert")
-	public @ResponseBody Iterable<Car> insertCars(@RequestBody Car carsRqst) {
-		Car newCar = new Car();
+	public @ResponseBody Iterable<Car> insertCars(@RequestBody Car carsRqst) {		
 		System.out.println("Vehicle #"+carsRqst.getRegNo());
-		
-		carRepository.save(carsRqst);
-		
-		return findCars();
+		return carService.insertCar(carsRqst);
 	}
-	
+		
 	@RequestMapping("/findAll")
 	public @ResponseBody Iterable<Car> findCars() {
-		return carRepository.findAll();
+		return carService.findCars();
 	}
 	
 	@RequestMapping("/findOne")
 	public @ResponseBody Car findCar(@RequestParam Integer regno) {
-		return carRepository.findOne(regno);
+		return carService.findCar(regno);
 	}
 	
 	@RequestMapping("/remove")
 	public @ResponseBody Car removeCar(@RequestParam Integer regno) {
-		Car removeCar = new Car();
-		removeCar = carRepository.findOne(regno);
-		carRepository.delete(removeCar);
-		return removeCar;
+		return carService.removeCar(regno);
 	}
 }
 

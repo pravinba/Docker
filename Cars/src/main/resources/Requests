@@ -13,3 +13,24 @@ http://192.168.99.100:8080/car/insert
         "modelName": "Rapid",
         "trim": "Sedan"
     }
+    
+    [
+    {
+        "regNo": 333333,
+        "make": "Volkswagen",
+        "modelName": "Polo",
+        "trim": "Hatchback"
+    },
+    {
+        "regNo": 444444,
+        "make": "Fiat",
+        "modelName": "Linea",
+        "trim": "Sedan"
+    },
+    {
+        "regNo": 555555,
+        "make": "Maruti",
+        "modelName": "Swift",
+        "trim": "Hatchback"
+    }
+]
