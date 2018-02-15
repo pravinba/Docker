@@ -1,0 +1,37 @@
+cars:
+    image: pravinba/cars
+    container_name: cars-app
+    ports:
+        - 8080:8080
+    hostname: cars-server
+    links:
+        - carsdb-mysql:carsdb
+        
+
+insurance:
+    image: pravinba/insurance
+    container_name: insurance-app
+    ports:
+        - 8081:8081
+    hostname: insurance-server
+    links:
+        - insurancedb-mysql:insurancedb
+            
+carsdb:
+    image: mysql
+    container_name: carsdb-mysql
+    ports:
+        - 3307:3306
+    hostname: carsdb-server
+    
+    
+insurancedb:
+    image: mysql
+    container_name: insurancedb-mysql
+    ports:
+        - 3308:3306
+    hostname: insurancedb-server
+    
+
+
+
