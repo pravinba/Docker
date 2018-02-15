@@ -1,0 +1,17 @@
+cars:
+    image: pravinba/cars
+    container_name: cars-app
+    ports:
+        - 8080
+    hostname: cars-server
+    links:
+        - carsdb-mysql:carsdb
+            
+mongodb:
+    image: mongo
+    container_name: mongo
+    ports:
+        - 27017
+    hostname: mongo
+    volumes:
+        - $HOME/mongo/data/db:/data/db
